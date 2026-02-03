@@ -117,6 +117,7 @@ function showScores(data) {
   const overall = Math.round(scores.reduce((sum, item) => sum + item.score, 0) / scores.length);
   
   const scoreClass = getScoreClass(overall);
+  const faceImage = getFaceImage(overall);
   
   const categories = {
     'Shipping Emissions': { icon: '🚚' },
@@ -151,6 +152,7 @@ function showScores(data) {
   document.getElementById('app').innerHTML = `
     <div class="score-view">
       <div class="score-summary">
+        <img src="${faceImage}" alt="Score indicator" class="silly-face">
         <div class="score-number ${scoreClass}">${overall}%</div>
         <div class="score-subtitle">Overall Score</div>
       </div>
@@ -165,6 +167,13 @@ function showScores(data) {
       card.classList.toggle('expanded');
     });
   });
+}
+
+function getFaceImage(score) {
+  if (score >= 80) return 'images/happy.jpg';
+  if (score >= 60) return 'images/content.jpg';
+  if (score >= 40) return 'images/suspicious.jpg';
+  return 'images/angry.jpg';
 }
 
 function formatCategoryName(name) {
