@@ -119,6 +119,9 @@ function showScores(data) {
   const scoreClass = getScoreClass(overall);
   const faceImage = getFaceImage(overall);
   
+  // Apply background color to body
+  document.body.className = `bg-${scoreClass}-screen`;
+  
   const categories = {
     'Shipping Emissions': { icon: '🚚' },
     'Material Sustainability': { icon: '🌿' },
