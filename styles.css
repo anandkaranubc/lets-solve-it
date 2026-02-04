@@ -253,8 +253,8 @@ p {
 
 .back-btn {
     position: fixed;
-    top: 70px;
-    right: 16px;
+    top: 24px;
+    right: 24px;
     background: rgba(255, 255, 255, 0.95);
     color: var(--text-primary);
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -267,11 +267,16 @@ p {
     backdrop-filter: blur(10px);
     z-index: 100;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.flipper.flipped .back-btn {
+    display: block;
 }
 
 .back-btn:hover {
     background: rgba(255, 255, 255, 1);
-    transform: translateX(-2px);
+    transform: translateX(2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
