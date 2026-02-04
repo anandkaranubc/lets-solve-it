@@ -119,8 +119,12 @@ function showScores(data) {
   const scoreClass = getScoreClass(overall);
   const faceImage = getFaceImage(overall);
   
-  // Apply background color to body
-  document.body.className = `bg-${scoreClass}-screen`;
+  // Apply background image to body
+  document.body.style.backgroundImage = `url('${faceImage}')`;
+  document.body.style.backgroundSize = 'cover';
+  document.body.style.backgroundPosition = 'center';
+  document.body.style.backgroundRepeat = 'no-repeat';
+  document.body.className = '';
   
   const categories = {
     'Shipping Emissions': { icon: '🚚' },
@@ -155,7 +159,6 @@ function showScores(data) {
   document.getElementById('app').innerHTML = `
     <div class="score-view">
       <div class="score-summary">
-        <img src="${faceImage}" alt="Score indicator" class="silly-face">
         <div class="score-number ${scoreClass}">${overall}%</div>
         <div class="score-subtitle">Overall Score</div>
       </div>
@@ -173,10 +176,10 @@ function showScores(data) {
 }
 
 function getFaceImage(score) {
-  if (score >= 80) return 'images/happy.jpg';
-  if (score >= 60) return 'images/content.jpg';
-  if (score >= 40) return 'images/suspicious.jpg';
-  return 'images/angry.jpg';
+  if (score >= 80) return 'images/happy2.jpg';
+  if (score >= 60) return 'images/content2.jpg';
+  if (score >= 40) return 'images/suspicious2.jpg';
+  return 'images/angry2.png';
 }
 
 function formatCategoryName(name) {
