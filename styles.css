@@ -253,8 +253,8 @@ p {
 
 .back-btn {
     position: fixed;
-    top: 24px;
-    right: 24px;
+    top: 12px;
+    right: 12px;
     background: rgba(255, 255, 255, 0.95);
     color: var(--text-primary);
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -334,12 +334,16 @@ p {
     border-radius: 16px;
     padding: 16px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
-.category:hover {
+.category:hover:not(.expanded) {
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.category.expanded {
+    transform: translateY(0);
 }
 
 .category-top {
@@ -386,14 +390,20 @@ p {
     font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.6;
-    display: none;
-    padding-top: 12px;
-    margin-top: 12px;
-    border-top: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding-top: 0;
+    margin-top: 0;
+    transition: all 0.3s ease;
 }
 
 .category.expanded .category-details {
-    display: block;
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 12px;
+    margin-top: 12px;
+    border-top: 1px solid var(--border);
 }
 
 .excellent {
