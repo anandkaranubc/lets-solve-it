@@ -1,4 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Check if we have cached results for the current page
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  
+  if (tab?.url?.includes('amazon.')) {
+    // Get cached data
+    const cached = await chrome.storage.local.get(['cachedUrl', 'cachedData']);
+    
+    if (cached.cachedUrl === tab.url && cached.cachedData) {
+      // Same page with cached results - show them
+      showScores(cached.cachedData);
+      return;
+    }
+  }
+  
+  // Different page or no cache - show start screen
   const analyzeBtn = document.getElementById('analyzeBtn');
   if (analyzeBtn) {
     analyzeBtn.addEventListener('click', handleAnalyze);
@@ -35,6 +50,13 @@ async function handleAnalyze() {
     if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
     const data = await response.json();
+    
+    // Cache the results with the current URL
+    await chrome.storage.local.set({
+      cachedUrl: tab.url,
+      cachedData: data
+    });
+    
     showScores(data);
   } catch (error) {
     console.error('Error:', error);
