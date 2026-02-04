@@ -26,7 +26,7 @@ async function handleAnalyze() {
       return;
     }
 
-    const response = await fetch('http://localhost:3000/get_score', {
+    const response = await fetch(`${CONFIG.API_URL}/get_score`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(result.result),

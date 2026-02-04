@@ -4,7 +4,7 @@ import 'dotenv/config';
 import cors from 'cors';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
@@ -194,6 +194,16 @@ app.post('/get_score', async (req, res) => {
   }
 });
 
+// Root endpoint (for Render health checks)
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'Silly Sustainability API',
+    message: 'Server is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({
@@ -204,10 +214,11 @@ app.get('/health', (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
-  console.log(`🌱 Silly backend server running on http://localhost:${port}`);
-  console.log(`📊 API endpoint: POST http://localhost:${port}/get_score`);
-  console.log(`❤️  Health check: GET http://localhost:${port}/health`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`🌱 Silly backend server running on port ${port}`);
+  console.log(`📊 API endpoint: POST /get_score`);
+  console.log(`❤️  Health check: GET /health`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
   
   if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'YOUR_OPENAI_API_KEY_HERE') {
     console.warn('\n⚠️  WARNING: OpenAI API key not configured!');
