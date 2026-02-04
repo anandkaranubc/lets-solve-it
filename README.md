@@ -11,16 +11,22 @@ Chrome extension that analyzes the environmental impact of Amazon products using
 
 ## Installation
 
-1. Open Chrome → `chrome://extensions`
-2. Enable "Developer mode"
-3. Click "Load unpacked"
-4. Select the extension folder
-5. Visit any Amazon product page
-6. Click the Silly icon to analyze!
+### Manual Installation (Developer Mode)
+
+1. Download or clone this repository
+2. Open Chrome → `chrome://extensions`
+3. Enable "Developer mode" (toggle in top-right)
+4. Click "Load unpacked"
+5. Select the extension folder
+6. Visit any Amazon product page
+7. Click the Silly icon to analyze!
+
+**Note:** This extension is not yet published on the Chrome Web Store. For now, it must be installed manually in developer mode.
 
 ## How It Works
 
 The extension uses AI (GPT-4 Turbo) to analyze:
+
 - Product materials and manufacturing
 - Shipping distance and carbon emissions
 - Company sustainability practices
