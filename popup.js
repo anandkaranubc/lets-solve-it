@@ -169,6 +169,7 @@ function showScores(data) {
         </div>
         <div class="flip-back">
           <div class="score-view">
+            <button class="back-btn" id="backBtn">← Back</button>
             <div class="score-summary">
               <div class="score-number ${scoreClass}">${overall}%</div>
               <div class="score-subtitle">Overall Score</div>
@@ -185,6 +186,11 @@ function showScores(data) {
   // Add flip functionality
   document.getElementById('revealBtn').addEventListener('click', () => {
     document.querySelector('.flipper').classList.add('flipped');
+  });
+
+  // Add back button functionality
+  document.getElementById('backBtn').addEventListener('click', () => {
+    document.querySelector('.flipper').classList.remove('flipped');
   });
 
   document.querySelectorAll('.category').forEach(card => {

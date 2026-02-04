@@ -251,6 +251,29 @@ p {
     gap: 12px;
 }
 
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .bg-excellent-screen::before {
     background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #f0fdf4 100%);
 }
