@@ -118,6 +118,7 @@ function showScores(data) {
   
   const scoreClass = getScoreClass(overall);
   const faceImage = getFaceImage(overall);
+  const tagline = getTagline(overall);
   
   // Apply background image to body
   document.body.style.backgroundImage = `url('${faceImage}')`;
@@ -156,17 +157,35 @@ function showScores(data) {
     `;
   }).join('');
 
+  // Show initial reveal screen with tagline
   document.getElementById('app').innerHTML = `
-    <div class="score-view">
-      <div class="score-summary">
-        <div class="score-number ${scoreClass}">${overall}%</div>
-        <div class="score-subtitle">Overall Score</div>
-      </div>
-      <div class="categories">
-        ${categoriesHTML}
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="flip-front">
+          <div class="reveal-content">
+            <div class="tagline">${tagline}</div>
+            <button class="reveal-btn" id="revealBtn">Why?</button>
+          </div>
+        </div>
+        <div class="flip-back">
+          <div class="score-view">
+            <div class="score-summary">
+              <div class="score-number ${scoreClass}">${overall}%</div>
+              <div class="score-subtitle">Overall Score</div>
+            </div>
+            <div class="categories">
+              ${categoriesHTML}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `;
+
+  // Add flip functionality
+  document.getElementById('revealBtn').addEventListener('click', () => {
+    document.querySelector('.flipper').classList.add('flipped');
+  });
 
   document.querySelectorAll('.category').forEach(card => {
     card.addEventListener('click', () => {
@@ -180,6 +199,14 @@ function getFaceImage(score) {
   if (score >= 60) return 'images/content2.jpg';
   if (score >= 40) return 'images/suspicious2.jpg';
   return 'images/angry2.png';
+}
+
+function getTagline(score) {
+  if (score >= 85) return "This product is absolutely brilliant! 🌟";
+  if (score >= 70) return "This product is pretty solid 👍";
+  if (score >= 55) return "This product is kind of silly 🤔";
+  if (score >= 35) return "This product is quite questionable 😬";
+  return "This product is not silly at all 😠";
 }
 
 function formatCategoryName(name) {
