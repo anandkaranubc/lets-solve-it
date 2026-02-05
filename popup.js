@@ -190,8 +190,8 @@ function showScores(data) {
           </div>
         </div>
         <div class="flip-back">
+          <button class="back-btn" id="backBtn">← Back</button>
           <div class="score-view">
-            <button class="back-btn" id="backBtn">← Back</button>
             <div class="score-summary">
               <div class="score-number ${scoreClass}">${overall}%</div>
               <div class="score-subtitle">Overall Score</div>
@@ -223,17 +223,17 @@ function showScores(data) {
 }
 
 function getFaceImage(score) {
-  if (score >= 80) return 'images/happy2.jpg';
-  if (score >= 60) return 'images/content2.jpg';
-  if (score >= 40) return 'images/suspicious2.jpg';
-  return 'images/angry2.png';
+  if (score >= 80) return 'images/happy_green.jpg';
+  if (score >= 60) return 'images/content_green.jpg';
+  if (score >= 40) return 'images/suspicious_green.jpg';
+  return 'images/angry_green.png';
 }
 
 function getTagline(score) {
-  if (score >= 85) return "This product is absolutely brilliant! 🌟";
-  if (score >= 70) return "This product is pretty solid 👍";
+  if (score >= 85) return "This product is absolutely unsilly! 🌟";
+  if (score >= 70) return "This product is pretty unsilly 👍";
   if (score >= 55) return "This product is kind of silly 🤔";
-  if (score >= 35) return "This product is quite questionable 😬";
+  if (score >= 35) return "This product is quite silly 😬";
   return "This product is not silly at all 😠";
 }
 
