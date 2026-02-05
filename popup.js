@@ -181,6 +181,7 @@ function showScores(data) {
 
   // Show initial reveal screen with tagline
   document.getElementById('app').innerHTML = `
+    <button class="back-btn" id="backBtn">← Back</button>
     <div class="flip-container">
       <div class="flipper">
         <div class="flip-front">
@@ -190,7 +191,6 @@ function showScores(data) {
           </div>
         </div>
         <div class="flip-back">
-          <button class="back-btn" id="backBtn">← Back</button>
           <div class="score-view">
             <div class="score-summary">
               <div class="score-number ${scoreClass}">${overall}%</div>
