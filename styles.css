@@ -184,6 +184,7 @@ p {
 
 .flip-back {
     transform: rotateY(180deg);
+    background-color: #6DC244;
 }
 
 /* Reveal Screen (Front) */
