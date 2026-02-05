@@ -271,7 +271,7 @@ p {
     display: none;
 }
 
-.flipper.flipped .back-btn {
+.back-btn.show {
     display: block;
 }
 

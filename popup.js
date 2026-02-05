@@ -208,11 +208,13 @@ function showScores(data) {
   // Add flip functionality
   document.getElementById('revealBtn').addEventListener('click', () => {
     document.querySelector('.flipper').classList.add('flipped');
+    document.getElementById('backBtn').classList.add('show');
   });
 
   // Add back button functionality
   document.getElementById('backBtn').addEventListener('click', () => {
     document.querySelector('.flipper').classList.remove('flipped');
+    document.getElementById('backBtn').classList.remove('show');
   });
 
   document.querySelectorAll('.category').forEach(card => {
