@@ -254,14 +254,14 @@ p {
 
 .back-btn {
     position: fixed;
-    top: 12px;
-    right: 12px;
+    top: 24px;
+    right: 24px;
     background: rgba(255, 255, 255, 0.95);
     color: var(--text-primary);
     border: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
